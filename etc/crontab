@@ -1,0 +1,6 @@
+# /etc/crontab: system-wide crontab
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+@reboot root /etc/lighttpd/returnco-de-firewall.sh

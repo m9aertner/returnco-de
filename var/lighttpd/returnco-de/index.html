@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>returnco.de</title>
+    <meta name="charset" content="ISO-8859-1">
+    <meta name="description" content="This is a super simple service for generating different HTTP codes.">
+    <meta name="keywords" content="HTTP, Status Code, Return Code, Error Code, RFC2616, REST, Testing">
+    <meta name="copyright" content="Copyright 2016 - Public Domain">
+    <meta name="author" content="Matthias G&auml;rtner">
+    <meta name="designer" content="Eric Meyer">
+    <meta name="robots" content="index, nofollow">
+    <meta name="googlebot" content="index, nofollow">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Meta Tags Created by: www.MetaTagGenerator.org -->
+
+    <link href='/main.css' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <div id='content'>
+      <header>
+        <h1 id='title'>returnco.de</h1>
+      </header>
+      <div id='view'>
+        <p>This is a super simple service for generating different HTTP codes.</p>
+<p>It's useful for testing how your own scripts deal with varying responses.</p>
+<p>
+    Just add the status code you want to the host name, like this:
+    <a href="http://567.returnco.de">http://567.returnco.de</a>
+</p>
+<p>We'll return an empty response:</p>
+<code># curl -i http://567.returnco.de
+HTTP/1.1 567
+X-returnco-de: 567
+Content-Length: 0
+Date: Sat, 10 Dec 2016 21:52:23 GMT
+Server: lighttpd
+
+</code>
+<p>The status code can be specified in three ways:
+</p>
+<dl>
+        <dt>host</dt>
+        <dd>The desired return code can be put into the <b>host part</b> of the request, as in <a href="http://567.returnco.de" target="_blank">http://567.returnco.de</a>
+On the server side, this is read from the HTTP/1.1 &quot;Host&quot; header that's sent by all today's clients automatically.</dd>
+	<dt>port</dt>
+	<dd>It can be specified via the tcp <b>port</b> that you connect to, again identified via Host header, as in
+<a href="http://returnco.de:567" target="_blank">http://returnco.de:567</a>
+	<dt>path</dt>
+	<dd>When you really can't or do not want to send a Host header, <b>path</b>-style requests like <a href="/567/whatever?foo=bar" target="_blank">http://returnco.de/567</a> work here, too.
+	Unfortunately, it is not possible to use a <a href="https://www.wikipedia.org/wiki/Fragment_identifier" target="_blank">fragment</a>
+	(e.g. <span class="monospace">http://returnco.de/page#567</span>),
+	because fragments are client-side only and are not sent to the server.</dd>
+</dl>
+<p>
+The host and path options should work over both HTTP as well as HTTPS/TLS. Don't look too closely at the certificate.
+</p>
+<p>
+Kudos to the folks over at <a href="http://httpstat.us" target="_blank">http://httpstat.us</a> for inspiration plus page style and text content.
+Unlike their service, here you're not limited to just the <a href="https://www.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank">path</a> of the URI to provoke a specific response.
+</p>
+<p>
+In practice, it can be <i>much easier</i> to just change the <b>host name</b> or <b>port</b> in your program's configuration rather than trying to get it to request a specific URI!
+</p>
+<p>
+You can ask for any HTTP status code in the range of 200 to 999.
+Port tcp/443 is the default port for TLS, so for 443 host or path should be used.
+The complete list of HTTP/1.1 Status Codes can be found
+in <a href="https://www.ietf.org/rfc/rfc2616.txt" target="_blank">RFC2616</a> Section 10. For convenience:
+</p>
+<dl>
+        <dt><a href="http://200.returnco.de">200</a></dt>
+        <dd>
+OK        </dd>
+        <dt><a href="http://201.returnco.de">201</a></dt>
+        <dd>
+Created        </dd>
+        <dt><a href="http://202.returnco.de">202</a></dt>
+        <dd>
+Accepted        </dd>
+        <dt><a href="http://203.returnco.de">203</a></dt>
+        <dd>
+Non-Authoritative Information        </dd>
+        <dt><a href="http://204.returnco.de">204</a></dt>
+        <dd>
+No Content        </dd>
+        <dt><a href="http://205.returnco.de">205</a></dt>
+        <dd>
+Reset Content        </dd>
+        <dt><a href="http://206.returnco.de">206</a></dt>
+        <dd>
+Partial Content        </dd>
+        <dt><a href="http://300.returnco.de">300</a></dt>
+        <dd>
+Multiple Choices        </dd>
+        <dt><a href="http://301.returnco.de">301</a></dt>
+        <dd>
+Moved Permanently        </dd>
+        <dt><a href="http://302.returnco.de">302</a></dt>
+        <dd>
+Found        </dd>
+        <dt><a href="http://303.returnco.de">303</a></dt>
+        <dd>
+See Other        </dd>
+        <dt><a href="http://304.returnco.de">304</a></dt>
+        <dd>
+Not Modified        </dd>
+        <dt><a href="http://305.returnco.de">305</a></dt>
+        <dd>
+Use Proxy        </dd>
+        <dt><a href="http://306.returnco.de">306</a></dt>
+        <dd>
+Unused        </dd>
+        <dt><a href="http://307.returnco.de">307</a></dt>
+        <dd>
+Temporary Redirect        </dd>
+        <dt><a href="http://308.returnco.de">308</a></dt>
+        <dd>
+Permanent Redirect        </dd>
+        <dt><a href="http://400.returnco.de">400</a></dt>
+        <dd>
+Bad Request        </dd>
+        <dt><a href="http://401.returnco.de">401</a></dt>
+        <dd>
+Unauthorized        </dd>
+        <dt><a href="http://402.returnco.de">402</a></dt>
+        <dd>
+Payment Required        </dd>
+        <dt><a href="http://403.returnco.de">403</a></dt>
+        <dd>
+Forbidden        </dd>
+        <dt><a href="http://404.returnco.de">404</a></dt>
+        <dd>
+Not Found        </dd>
+        <dt><a href="http://405.returnco.de">405</a></dt>
+        <dd>
+Method Not Allowed        </dd>
+        <dt><a href="http://406.returnco.de">406</a></dt>
+        <dd>
+Not Acceptable        </dd>
+        <dt><a href="http://407.returnco.de">407</a></dt>
+        <dd>
+Proxy Authentication Required        </dd>
+        <dt><a href="http://408.returnco.de">408</a></dt>
+        <dd>
+Request Timeout        </dd>
+        <dt><a href="http://409.returnco.de">409</a></dt>
+        <dd>
+Conflict        </dd>
+        <dt><a href="http://410.returnco.de">410</a></dt>
+        <dd>
+Gone        </dd>
+        <dt><a href="http://411.returnco.de">411</a></dt>
+        <dd>
+Length Required        </dd>
+        <dt><a href="http://412.returnco.de">412</a></dt>
+        <dd>
+Precondition Required        </dd>
+        <dt><a href="http://413.returnco.de">413</a></dt>
+        <dd>
+Request Entry Too Large        </dd>
+        <dt><a href="http://414.returnco.de">414</a></dt>
+        <dd>
+Request-URI Too Long        </dd>
+        <dt><a href="http://415.returnco.de">415</a></dt>
+        <dd>
+Unsupported Media Type        </dd>
+        <dt><a href="http://416.returnco.de">416</a></dt>
+        <dd>
+Requested Range Not Satisfiable        </dd>
+        <dt><a href="http://417.returnco.de">417</a></dt>
+        <dd>
+Expectation Failed        </dd>
+        G<dt><a href="http://418.returnco.de">418</a></dt>
+        <dd>
+            <a href="http://www.ietf.org/rfc/rfc2324.txt" target="_blank" title="I&#39;m a teapot">I&#39;m a teapot</a>
+        </dd>
+        <dt><a href="http://422.returnco.de">422</a></dt>
+        <dd>
+Unprocessable Entity        </dd>
+        <dt><a href="http://428.returnco.de">428</a></dt>
+        <dd>
+Precondition Required        </dd>
+        <dt><a href="http://429.returnco.de">429</a></dt>
+        <dd>
+Too Many Requests        </dd>
+        <dt><a href="http://431.returnco.de">431</a></dt>
+        <dd>
+Request Header Fields Too Large        </dd>
+        <dt><a href="http://451.returnco.de">451</a></dt>
+        <dd>
+Unavailable For Legal Reasons        </dd>
+        <dt><a href="http://500.returnco.de">500</a></dt>
+        <dd>
+Internal Server Error        </dd>
+        <dt><a href="http://501.returnco.de">501</a></dt>
+        <dd>
+Not Implemented        </dd>
+        <dt><a href="http://502.returnco.de">502</a></dt>
+        <dd>
+Bad Gateway        </dd>
+        <dt><a href="http://503.returnco.de">503</a></dt>
+        <dd>
+Service Unavailable        </dd>
+        <dt><a href="http://504.returnco.de">504</a></dt>
+        <dd>
+Gateway Timeout        </dd>
+        <dt><a href="http://505.returnco.de">505</a></dt>
+        <dd>
+HTTP Version Not Supported        </dd>
+        <dt><a href="http://511.returnco.de">511</a></dt>
+        <dd>
+Network Authentication Required        </dd>
+        <dt><a href="http://520.returnco.de">520</a></dt>
+        <dd>
+Web server is returning an unknown error        </dd>
+        <dt><a href="http://522.returnco.de">522</a></dt>
+        <dd>
+Connection timed out        </dd>
+        <dt><a href="http://524.returnco.de">524</a></dt>
+        <dd>
+A timeout occurred        </dd>
+</dl>
+<p>
+Caveats / Bugs:
+<dl>
+<dt>The HTTP server hosting this service is unable to handle <span class="monospace">Transfer-Encoding: chunked</span> requests. This header is <i>ignored</i>.
+It expects that a <span class="monospace">Content-Length: ...</span> header is present in all requests.
+Otherwise, <span class="monospace">HTTP 411 Length Required</span> is returned instead of the requested return code.</dt>
+</dl>
+</p>
+<p>
+<dl>
+<dt>In the URL, larger numbers are treated as (milli-) seconds and
+converted to YYYY-MM-DD'T'HH:MI:SS.SSS'Z' as plain body content
+(<a href="https://www.ietf.org/rfc/rfc3339.txt" target="_blank">RFC3339</a>):
+      <a href="/1000000000">/1xxxxxxxx0"</a> (seconds, 3-10 digits) to
+      <a href="/1999999999999">/1xxxxxxxxxxx9</a> (millseconds, 11-13 digits).
+</dt>
+</dl>
+</p>
+<p>Enjoy!</p>
+      </div>
+      <footer>
+        References:
+        <a href="http://httpstat.us/" target="_blank">httpstat.us</a>
+        +
+        <a href="http://requestb.in/" target="_blank">requestb.in</a>
+        +
+        <a href="https://httpstatuses.com/" target="_blank">httpstatuses.com</a>
+        +
+        v1.0.7-github1
+        <br />
+        <a href="https://www.lighttpd.net/" target="_blank"><img src="https://redmine.lighttpd.net/attachments/download/636/btn_lighttpd_a_04.png" width="80" height="15" /></a>
+      </footer>
+    </div>
+  </body>
+</html>
+
