@@ -1,3 +1,6 @@
+### v1.0.8 (2025-10-18)
+- Minor amendments to current Lighttpd logo location and folder layout
+
 ### v1.0.7 (2020-11-03)
 - Initial Source Code Release
 
