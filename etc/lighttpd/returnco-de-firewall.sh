@@ -9,14 +9,18 @@
 PORT=200
 while [  "$PORT" -lt 1000 ]; do
 	if [ "$PORT" -ne 443 ]; then
-		iptables -t nat -I PREROUTING --dst 81.169.220.22 -p tcp \
+		iptables -t nat -I PREROUTING --dst 87.106.77.12 -p tcp \
 			--dport "$PORT" \
 			-j REDIRECT --to-port 80
+		ip6tables -t nat -A PREROUTING -p tcp -m tcp \
+			-d 2a01:239:436:5400::1 \
+			--dport "$PORT" \
+			-j REDIRECT --to-ports 80
 	fi
 	let PORT=PORT+1 
 done
 
-echo "iptables initialized" >> /var/log/firewall.log
+echo "$(date --iso-8601=seconds) iptables initialized" >> /var/log/firewall.log
 
 # iptables --flush -t nat
 # iptables -t nat -L -n -v
