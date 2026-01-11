@@ -1,3 +1,8 @@
+### v1.0.9 (2026-01-11)
+- Added raw IPv4, prepared for IPv6;
+  Removed custom SSL conf, just use 10-ssl;
+  Fixed 13-digit milliseconds
+
 ### v1.0.8 (2025-10-18)
 - Minor amendments to current Lighttpd logo location and folder layout
 

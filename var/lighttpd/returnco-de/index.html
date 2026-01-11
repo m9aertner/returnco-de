@@ -44,14 +44,14 @@ Server: lighttpd
         <dt>host</dt>
         <dd>The desired return code can be put into the <b>host part</b> of the request, as in <a href="http://567.returnco.de" target="_blank">http://567.returnco.de</a>
 On the server side, this is read from the HTTP/1.1 &quot;Host&quot; header that's sent by all today's clients automatically.</dd>
-	<dt>port</dt>
-	<dd>It can be specified via the tcp <b>port</b> that you connect to, again identified via Host header, as in
+        <dt>port</dt>
+        <dd>It can be specified via the tcp <b>port</b> that you connect to, again identified via Host header, as in
 <a href="http://returnco.de:567" target="_blank">http://returnco.de:567</a>
-	<dt>path</dt>
-	<dd>When you really can't or do not want to send a Host header, <b>path</b>-style requests like <a href="/567/whatever?foo=bar" target="_blank">http://returnco.de/567</a> work here, too.
-	Unfortunately, it is not possible to use a <a href="https://www.wikipedia.org/wiki/Fragment_identifier" target="_blank">fragment</a>
-	(e.g. <span class="monospace">http://returnco.de/page#567</span>),
-	because fragments are client-side only and are not sent to the server.</dd>
+        <dt>path</dt>
+        <dd>When you really can't or do not want to send a Host header, <b>path</b>-style requests like <a href="/567/whatever?foo=bar" target="_blank">http://returnco.de/567</a> work here, too.
+        Unfortunately, it is not possible to use a <a href="https://www.wikipedia.org/wiki/Fragment_identifier" target="_blank">fragment</a>
+        (e.g. <span class="monospace">http://returnco.de/page#567</span>),
+        because fragments are client-side only and are not sent to the server.</dd>
 </dl>
 <p>
 The host and path options should work over both HTTP as well as HTTPS/TLS. Don't look too closely at the certificate.
@@ -172,7 +172,7 @@ Requested Range Not Satisfiable        </dd>
         <dt><a href="http://417.returnco.de">417</a></dt>
         <dd>
 Expectation Failed        </dd>
-        G<dt><a href="http://418.returnco.de">418</a></dt>
+        <dt><a href="http://418.returnco.de">418</a></dt>
         <dd>
             <a href="http://www.ietf.org/rfc/rfc2324.txt" target="_blank" title="I&#39;m a teapot">I&#39;m a teapot</a>
         </dd>
@@ -250,7 +250,7 @@ converted to YYYY-MM-DD'T'HH:MI:SS.SSS'Z' as plain body content
         +
         <a href="https://httpstatuses.com/" target="_blank">httpstatuses.com</a>
         +
-        v1.0.8-github1
+        v1.0.9-github1
         <br />
         <a href="https://www.lighttpd.net/" target="_blank"><img src="http://www.lighttpd.net/light_button.png"/></a>
       </footer>
